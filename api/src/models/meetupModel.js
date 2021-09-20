@@ -8,7 +8,7 @@ db.define("Meetup", {
     allowNull: false,
   },
   temp: {
-    type: DataTypes.INTEGER,
+    type: DataTypes.FLOAT,
     allowNull: false,
    },
    bears: {
