@@ -27,7 +27,7 @@ async function userAdmin() {
   }
 }
 
-db.sync({ force: true }).then(async () => {
+db.sync({ force: false }).then(async () => {
   app.listen(PORT, () => {
     console.log(`%s listening at ${PORT}`); // eslint-disable-line no-console
     userAdmin();
