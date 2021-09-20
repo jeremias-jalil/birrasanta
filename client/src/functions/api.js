@@ -132,7 +132,7 @@ export async function weatherpApi() {
     params: { lat: "-32.40", lon: "-63.24" },
     headers: {
       "x-rapidapi-host": "weatherbit-v1-mashape.p.rapidapi.com",
-      "x-rapidapi-key": "4eaa52de90mshd2e68e9bed6ba0cp186667jsne58dca90f0e8-borrar",
+      "x-rapidapi-key": "4eaa52de90mshd2e68e9bed6ba0cp186667jsne58dca90f0e8",
     },
   };
   try {
