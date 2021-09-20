@@ -35,7 +35,7 @@ async function newInvitation(req, res) {
     const content = {
       title: "Fuiste invitado a tomar birra!!!",
       message: `Hola ${user.username}, fuiste invitado a tomar unas birras junto a todo el equipo de IT de Santander`,
-      buttonLink: "http://localhost:3000/",
+      buttonLink: "https://birrasanta.vercel.app/",
       buttonText: "Confirmar asistencia",
       noteMessage: "No olvides llevar la mejor onda!!!. ",
     };

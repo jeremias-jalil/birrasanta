@@ -56,7 +56,7 @@ async function register(req, res) {
     const content = {
       title: "Tu usuario fue creado con éxito!!!",
       message: `Hola ${user.username}, ya tienes tu cuenta en Birra Santa, recibirás notificaciones cunado te inviten a una Meetup. Que lo disfrutes!!!`,
-      buttonLink: "http://localhost:3000/",
+      buttonLink: "https://birrasanta.vercel.app/",
       buttonText: "Ir a Birra Santa",
       noteMessage: "No olvides llevar la mejor onda!!!. ",
     };

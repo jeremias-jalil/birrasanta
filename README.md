@@ -40,8 +40,11 @@ que la aplicación le brinda al creador de la meetup la cantidad de cajas a comp
 
     Invitaciones
     - Puede ver todas sus invitaciones pendientes. 
+    - Recibe notificación por email cuando es invitado a una meetup. 
     - Puede confirmar asistencia si la Meetup a la que fue invitado aún no se llevó a cabo. 
     - Puede hacer check-in una vez que confirmó asistencia, y la Meetup ya se llevó a cabo.  
+
+    Recibe notificación por email al crear una cuenta. 
 
 ## Deployment
 
