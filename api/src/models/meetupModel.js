@@ -12,7 +12,7 @@ db.define("Meetup", {
     allowNull: false,
    },
    bears: {
-    type: DataTypes.INTEGER,
+    type: DataTypes.FLOAT,
     allowNull: false,
    },
   date: {
