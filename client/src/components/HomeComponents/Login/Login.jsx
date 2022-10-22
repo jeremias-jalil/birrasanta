@@ -43,7 +43,7 @@ export default function Loguin() {
   useEffect(() => {
     if (userInfo.user?.id) {
       history.push(`/user/${userInfo.user.id}`);
-    }// eslint-disable-next-line
+    } // eslint-disable-next-line
   }, [userInfo]);
 
   const handleChange = (prop) => (event) => {
@@ -53,8 +53,9 @@ export default function Loguin() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     const userAcces = await dispatch(loguinUser(values));
-    if(userAcces){
-    history.push(`/user/${userAcces.user.id}`);}
+    if (userAcces) {
+      history.push(`/user/${userAcces.user.id}`);
+    }
     setValues(initialState);
   };
 
@@ -80,115 +81,110 @@ export default function Loguin() {
   };
 
   return (
-      <Grid container component="main" sx={{ height: "100vh" }}>
-        <CssBaseline />
-        <Grid
-          item
-          xs={false}
-          sm={4}
-          md={7}
+    <Grid container component="main" sx={{ height: "100vh" }}>
+      <CssBaseline />
+      <Grid
+        item
+        xs={false}
+        sm={4}
+        md={7}
+        sx={{
+          backgroundImage: "url(https://i.ibb.co/ynkgBr8/Birra-Santa-Home.jpg)",
+          backgroundRepeat: "no-repeat",
+          backgroundColor: (t) =>
+            t.palette.mode === "light"
+              ? t.palette.grey[50]
+              : t.palette.grey[900],
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      />
+      <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
+        <Box
           sx={{
-            backgroundImage:
-              "url(https://i.ibb.co/ynkgBr8/Birra-Santa-Home.jpg)",
-            backgroundRepeat: "no-repeat",
-            backgroundColor: (t) =>
-              t.palette.mode === "light"
-                ? t.palette.grey[50]
-                : t.palette.grey[900],
-            backgroundSize: "cover",
-            backgroundPosition: "center",
+            my: 8,
+            mx: 4,
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
           }}
-        />
-        <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
+        >
+          <img
+            src="https://i.ibb.co/JmV719n/Birra-Santa-Logo-Color.png"
+            alt="Birra-Santa-Logo-Color"
+            border="0"
+            style={{ width: "250px" }}
+          />
+          <Typography component="h1" variant="h5">
+            Ingresa con tus datos
+          </Typography>
           <Box
-            sx={{
-              my: 8,
-              mx: 4,
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-            }}
+            component="form"
+            noValidate
+            onSubmit={handleSubmit}
+            sx={{ mt: 1 }}
           >
-            <img
-              src="https://i.ibb.co/JmV719n/Birra-Santa-Logo-Color.png"
-              alt="Birra-Santa-Logo-Color"
-              border="0"
-              style={{ width: "250px" }}
+            <TextField
+              value={values.email}
+              margin="normal"
+              required
+              fullWidth
+              id="email"
+              label="Email Address"
+              name="email"
+              autoComplete="email"
+              autoFocus
+              onChange={handleChange("email")}
             />
-            <Typography component="h1" variant="h5">
-              Ingresa con tus datos
-            </Typography>
-            <Box
-              component="form"
-              noValidate
-              onSubmit={handleSubmit}
-              sx={{ mt: 1 }}
-            >
-              <TextField
-                value={values.email}
-                margin="normal"
-                required
-                fullWidth
-                id="email"
-                label="Email Address"
-                name="email"
-                autoComplete="email"
-                autoFocus
-                onChange={handleChange("email")}
+            <FormControl sx={{ width: "100%" }} variant="outlined">
+              <InputLabel htmlFor="outlined-adornment-password">
+                Password
+              </InputLabel>
+              <OutlinedInput
+                id="outlined-adornment-password"
+                type={values.showPassword ? "text" : "password"}
+                value={values.password}
+                onChange={handleChange("password")}
+                endAdornment={
+                  <InputAdornment position="end">
+                    <IconButton
+                      aria-label="toggle password visibility"
+                      onClick={handleClickShowPassword}
+                      onMouseDown={handleMouseDownPassword}
+                      edge="end"
+                    >
+                      {values.showPassword ? <VisibilityOff /> : <Visibility />}
+                    </IconButton>
+                  </InputAdornment>
+                }
+                label="Password"
               />
-              <FormControl sx={{ width: "100%" }} variant="outlined">
-                <InputLabel htmlFor="outlined-adornment-password">
-                  Password
-                </InputLabel>
-                <OutlinedInput
-                  id="outlined-adornment-password"
-                  type={values.showPassword ? "text" : "password"}
-                  value={values.password}
-                  onChange={handleChange("password")}
-                  endAdornment={
-                    <InputAdornment position="end">
-                      <IconButton
-                        aria-label="toggle password visibility"
-                        onClick={handleClickShowPassword}
-                        onMouseDown={handleMouseDownPassword}
-                        edge="end"
-                      >
-                        {values.showPassword ? (
-                          <VisibilityOff />
-                        ) : (
-                          <Visibility />
-                        )}
-                      </IconButton>
-                    </InputAdornment>
-                  }
-                  label="Password"
-                />
-              </FormControl>
-              <Button
-                type="submit"
-                fullWidth
-                variant="contained"
-                sx={{ mt: 3, mb: 2 }}
-                onClick={(e) => handleSubmit(e)}
-              >
-                Ingresar
-              </Button>
-              <Button variant="outlined" onClick={handleClickOpen}>
-                Registrarse
-              </Button>
-            </Box>
+            </FormControl>
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              sx={{ mt: 3, mb: 2 }}
+              onClick={(e) => handleSubmit(e)}
+            >
+              Ingresar
+            </Button>
+            <Button variant="outlined" onClick={handleClickOpen}>
+              Registrarse
+            </Button>
           </Box>
-        </Grid>
-        <div id="dialogRegister">
-          <Dialog open={open} onClose={handleClose} id="dialogRegister">
-             <DialogContent>
-              <UserRegister />
-            </DialogContent>
-            <DialogActions>
-              <Button onClick={handleClose}>Cancelar</Button>
-            </DialogActions>
-          </Dialog>
-        </div>
+        </Box>
       </Grid>
+      <div id="dialogRegister">
+        <Dialog open={open} onClose={handleClose} id="dialogRegister">
+          <DialogContent>
+            <UserRegister onClose={handleClose} />
+          </DialogContent>
+          <DialogActions>
+            <Button onClick={handleClose}>Cancelar</Button>
+          </DialogActions>
+        </Dialog>
+      </div>
+    </Grid>
   );
 }
