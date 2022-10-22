@@ -49,7 +49,7 @@ que la aplicación le brinda al creador de la meetup la cantidad de cajas a comp
 ## Deployment
 
 El proyecto se encuentra publicado en el siguiente enlace: 
-https://birrasanta.vercel.app/
+https://birrasanta.web.app/
 
 ### Tecnología usada
     Backend publicado con Heroku
